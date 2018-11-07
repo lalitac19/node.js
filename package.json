@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "babel-node buildScripts/srcServer.js",
-    "start": "npm-run-all --parallel start-server share lint:watch",
-    "lint": "esw webpack.config.* src buildScripts",
-    "lint:watch": "npm run lint -- --watch",
+    "start-server": "node buildScripts/srcServer.js",
+    "start": "npm-run-all --parallel start-server share",
     "share": "lt --port 3000"
   },
   "keywords": [],
@@ -15,18 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^8.0.4",
-    "babel-preset-latest": "^6.24.1",
-    "chai": "^4.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-watch": "^4.0.2",
     "express": "^4.16.1",
-    "jsdom": "^13.0.0",
     "localtunnel": "^1.8.3",
-    "mocha": "^5.2.0",
-    "open": "0.0.5",
-    "webpack": "^4.25.1",
-    "webpack-dev-middleware": "^3.4.0"
+    "open": "0.0.5"
   }
 }

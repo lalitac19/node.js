@@ -1,16 +1,18 @@
-import webpack from "webpack"
-import config from "../webpack.config.dev";
-const compiler = webpack(config);
-app.use(require("webpack-dev-middleware")(compiler, {
-noInfo: true,
-publicPath:config.output.publicPath
-}));
 
 const express = require("express");
+const axios = require("axios");
 const path = require("path");
 const open = require("open");
 const port = 3000;
 const app = express();
+
+app.get("/get", (req, res) => {
+axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=29ab70bc')
+  .then(response=>res.send(response.data));
+});
+ 
+
+
 app.get("/", (req, res) => {
 res.sendFile(path.join(__dirname,"../src/index.html"));
 });
